@@ -1,28 +1,26 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Auth0 - Angular</a><br>
+      <!-- <a class="navbar-brand" href="#">Auth0 - Angular</a> -->
+      <!-- <br> -->
+      <!-- <div class="menu"> -->
+        <ul>
+          <li>
+            <a routerLink="/" *ngIf="auth.isAuthenticated" > Home</a>
 
-      <button
-        class="btn btn-primary btn-margin"
-        routerLink="/">
-          Home
-      </button>
+          </li>
+          <li>
+            <a href="#" *ngIf="!auth.isAuthenticated()" (click)="auth.login()" > Login</a>
+          </li>
 
-      <button
-        class="btn btn-primary btn-margin"
-        *ngIf="!auth.isAuthenticated()"
-        (click)="auth.login()">
-          Log In
-      </button>
-
-      <button
-        class="btn btn-primary btn-margin"
-        *ngIf="auth.isAuthenticated()"
-        (click)="auth.logout()">
-          Log Out
-      </button>
-
+          <li>
+            <a routerLink="/profile" *ngIf="auth.isAuthenticated" > Profile</a>
+          </li>
+          <li>
+            <a href="#" *ngIf="auth.isAuthenticated()" (click)="auth.logout()"  > Logout </a>
+          </li>
+        </ul>
+      <!-- </div> -->
     </div>
   </div>
 </nav>
